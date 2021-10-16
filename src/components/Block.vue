@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    props: ['delay', 'stop'],
+    props: ['delay'],
     data() {
         return {
             showBlock: false,
@@ -24,7 +24,7 @@ export default {
         stopTimer() {
             clearInterval(this.timer)
             console.log(this.reactionTime)
-            this.stop()
+            this.$emit('end', this.reactionTime) //Here use custom events. This way we can send data to parent component
         },
     },
 
